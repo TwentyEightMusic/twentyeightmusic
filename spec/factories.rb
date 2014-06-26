@@ -5,6 +5,6 @@ FactoryGirl.define do
   end
 
   factory :api_key do
-    token SecureRandom.hex(18)
+    token "#{SecureRandom.hex(18)}"
   end
 end
