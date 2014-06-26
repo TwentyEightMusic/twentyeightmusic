@@ -1,28 +1,45 @@
-<h1>Twenty Eight</h1>
+<div id="logo">
+  <h1>twenty eight</h1>
+</div>
 
-<h2>Contact info</h2>
-<ul>
-  <li>
-    <%= mail_to(
-      "info@twentyeightmusic.com",
-      "info@twentyeightmusic.com"
-    )
-    %>
-  </li>
-</ul>
+<div id="upcoming-gigs">
+  <h2>Upcoming gigs</h2>
+  <table>
+    <thead>
+      <tr>
+        <th width="200">Location</th>
+        <th>Start Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @upcoming_gigs %>
+    </tbody>
+  </table>
+</div>
 
-<h2>Upcoming gigs</h2>
-<ul>
-  <%= render @upcoming_gigs %>
-</ul>
+<div id="music">
+  <h2>Music</h2>
+  <ul class="no-bullet">
+    <li>
+      <%= link_to(
+        "music.twentyeightmusic.com",
+        "http://music.twentyeightmusic.com",
+        class: "button")
+      %>
+    </li>
+  </ul>
+</div>
 
-<h2>Music</h2>
-<ul>
-  <li>
-    <%= link_to(
-      "music.twentyeightmusic.com",
-      "http://music.twentyeightmusic.com"
-    )
-    %>
-  </li>
-</ul>
+<div id="contact-info">
+  <h2>Contact info</h2>
+  <ul class="no-bullet">
+    <li>
+      <%= mail_to(
+        "info@twentyeightmusic.com",
+        "info@twentyeightmusic.com",
+        class: "button")
+      %>
+    </li>
+  </ul>
+</div>
+

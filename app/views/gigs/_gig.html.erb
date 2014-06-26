@@ -1,3 +1,4 @@
-<li>
-  <%= gig.venue %> <%= gig.start_time.to_time.strftime('%B %e at %l:%M %p') %>
-</li>
+<tr>
+  <td><%= gig.venue %></td>
+  <td><%= gig.start_time.to_time.strftime('%B %e at %l:%M %p') %></td>
+</tr>
