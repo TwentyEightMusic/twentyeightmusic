@@ -1,0 +1,26 @@
+<h1>Twenty Eight</h1>
+
+<h2>Contact info</h2>
+<ul>
+  <li>
+    <%= mail_to
+      "info@twentyeightmusic.com",
+      "info@twentyeightmusic.com"
+    %>
+  </li>
+</ul>
+
+<h2>Upcoming gigs</h2>
+<ul>
+  <%= render @upcoming_gigs %>
+</ul>
+
+<h2>Music</h2>
+<ul>
+  <li>
+    <%= link_to
+      "music.twentyeightmusic.com",
+      "http://music.twentyeightmusic.com"
+    %>
+  </li>
+</ul>

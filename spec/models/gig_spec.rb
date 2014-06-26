@@ -1,5 +1,12 @@
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe Gig, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Gig do
+  context ".upcoming" do
+    it "returns the given number of gigs" do
+      8.times { create(:gig) }
+      upcoming_gigs = Gig.upcoming_gigs(5)
+
+      expect(upcoming_gigs.count).to eq 5
+    end
+  end
 end
