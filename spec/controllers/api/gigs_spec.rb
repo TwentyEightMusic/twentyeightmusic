@@ -9,7 +9,6 @@ describe Api::V1::GigsController do
       ApiKey.stub(:find_by) { api_key }
       post :create, api_key: api_key, gig_info: gig_info
 
-      p response.body
       expect(Gig.all.count).to eq 1
     end
   end

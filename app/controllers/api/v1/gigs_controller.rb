@@ -4,6 +4,9 @@ class Api::V1::GigsController < ApplicationController
   def create
     gig = Gig.create(gig_params)
     render json: gig
+  rescue
+    message = { message: "Sorry, there was an error with your request" }
+    render json: message
   end
 
   private
