@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20140626032819) do
 
   create_table "gigs", force: true do |t|
     t.string   "venue",      null: false
-    t.time     "start_time", null: false
+    t.datetime "start_time", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
