@@ -1,0 +1,18 @@
+<div id="upcoming-gigs" class="gigs panel callout radius">
+  <h2>Bootlegs</h2>
+  <% if current_user.admin? %>
+    <%= link_to "Add gig bootleg", new_bootleg_path %>
+  <% end %>
+  <hr>
+  <table>
+    <thead>
+      <tr>
+        <th>Gig</th>
+        <th>Tracks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @bootlegs %>
+    </tbody>
+  </table>
+</div>

@@ -21,7 +21,10 @@
 h1 {
   font-family: 'Yesteryear', cursive;
   font-size: 84px;
-  color: gray;
+
+  a:link, a:visited, a:hover, a:active {
+    color: gray;
+  }
 }
 
 h2 {
@@ -37,6 +40,22 @@ body {
 table {
   margin-left:auto;
   margin-right:auto;
+}
+
+#picture {
+  position: relative;
+  bottom: 30px;
+
+  img {
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+  }
+}
+
+#logo {
+  position: relative;
+  z-index: 9;
 }
 
 .music {

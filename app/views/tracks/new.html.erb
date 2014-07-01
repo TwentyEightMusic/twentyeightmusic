@@ -1,0 +1,9 @@
+<div class="gigs panel callout radius">
+  <%= form_for [:bootleg, @track] do |form| %>
+    <div>
+      <%= form.filepicker_field :filepicker_url %>
+      <%= form.text_field :name, placeholder:"Track name" %>
+    </div>
+    <%= form.submit "Add bootleg" %>
+  <% end %>
+</div>

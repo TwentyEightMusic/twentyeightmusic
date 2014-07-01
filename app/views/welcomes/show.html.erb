@@ -1,7 +1,3 @@
-<div id="logo">
-  <h1>twenty eight</h1>
-</div>
-
 <div id="upcoming-gigs" class="gigs panel callout radius">
   <h2>upcoming gigs</h2>
   <table>
@@ -22,8 +18,13 @@
   <ul class="no-bullet">
     <li>
       <%= link_to(
-        "music.twentyeightmusic.com",
+        "studio tracks",
         "http://music.twentyeightmusic.com",
+        class: "button")
+      %>
+      <%= link_to(
+        "bootlegs",
+        bootlegs_path,
         class: "button")
       %>
     </li>

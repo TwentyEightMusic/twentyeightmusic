@@ -1,4 +1,7 @@
 class Gig < ActiveRecord::Base
+  has_one :bootleg, dependent: :destroy
+  has_many :tracks, through: :bootleg
+
   validates :venue, presence: true
   validates :start_time, presence: true
 
@@ -6,5 +9,13 @@ class Gig < ActiveRecord::Base
     where("start_time >= ?", Time.now.midday).
       order("start_time asc").
       first(num)
+  end
+
+  def self.sorted
+    order("start_time asc")
+  end
+
+  def listing_date
+    "#{venue} #{start_time.in_time_zone.strftime('%a, %b%e')}"
   end
 end

@@ -8,12 +8,27 @@
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
+    <%= filepicker_js_include_tag %>
+    <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
+    <div id="logo">
+      <h1><%= link_to "twenty eight", root_path %></h1>
+    </div>
+
+    <div id="picture">
+      <%= image_tag "http://i.imgur.com/WE019mz.jpg", width: 400 %>
+    </div>
 
     <%= yield %>
-    <%= javascript_include_tag "application" %>
+    <div id="sign-in">
+      <% if signed_in? %>
+        <%= link_to "sign out", session_path, method: :delete %>
+      <% else %>
+        <%= link_to "sign in", new_session_path %>
+      <% end %>
+    </div>
   </body>
 </html>
