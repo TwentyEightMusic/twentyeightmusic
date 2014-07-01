@@ -6,7 +6,7 @@ class BootlegsController < ApplicationController
   def new
     @bootleg = Bootleg.new
     @gigs = []
-    gigs = Gig.sorted
+    gigs = Gig.sorted_in_the_past
     gigs.each do |gig|
       if gig.bootleg.nil?
         @gigs << gig

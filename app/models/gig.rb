@@ -11,7 +11,8 @@ class Gig < ActiveRecord::Base
       first(num)
   end
 
-  def self.sorted
+  def self.sorted_in_the_past
+    where("start_time <= ?", Time.now.midday).
     order("start_time asc")
   end
 
