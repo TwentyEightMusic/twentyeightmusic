@@ -1,4 +1,5 @@
 <div class="gigs panel callout radius">
+  <%= render "error_messages", target: @track %>
   <%= form_for [:bootleg, @track] do |form| %>
     <div>
       <%= form.filepicker_field :filepicker_url %>
