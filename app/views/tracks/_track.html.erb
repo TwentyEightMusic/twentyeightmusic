@@ -1,5 +1,5 @@
 <li>
-  <%= link_to track.name, track.filepicker_url, class: "button" %>
+  <%= link_to track.name, track.filepicker_url, class: "button tiny" %>
   <% if current_user.admin? %>
     <%= link_to "delete", track, method: :delete, class: "button tiny" %>
   <% end %>
