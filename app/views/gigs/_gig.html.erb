@@ -1,9 +1,6 @@
 <tr>
   <td><%= gig.venue %></td>
   <td>
-    <%=
-      gig.start_time.in_time_zone('Eastern Time (US & Canada)').
-        strftime('%a, %b%e @ %l%p')
-    %>
+    <%= gig.friendly_start_time %>
   </td>
 </tr>

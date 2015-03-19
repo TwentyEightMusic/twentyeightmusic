@@ -12,5 +12,6 @@ module Twentyeightmusic
   class Application < Rails::Application
     config.filepicker_rails.api_key = ENV.fetch("FILEPICKER_API_KEY")
     config.filepicker_rails.secret_key = ENV.fetch("FILEPICKER_SECRET_KEY")
+    config.time_zone = "Eastern Time (US & Canada)"
   end
 end

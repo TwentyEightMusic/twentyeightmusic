@@ -17,11 +17,14 @@ class Gig < ActiveRecord::Base
   end
 
   def listing_date
-    "#{venue} #{start_time.in_time_zone.strftime('%a, %b%e')}"
+    "#{venue} #{start_time.strftime('%a, %b%e')}"
   end
 
   def date
-    start_time.in_time_zone('Eastern Time (US & Canada)').
-      strftime('%a, %b %e %Y')
+    start_time.strftime('%a, %b %e %Y')
+  end
+
+  def friendly_start_time
+    start_time.strftime('%a, %b%e @ %l%p')
   end
 end
