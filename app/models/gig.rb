@@ -13,10 +13,15 @@ class Gig < ActiveRecord::Base
 
   def self.sorted_in_the_past
     where("start_time <= ?", Time.now.midday).
-    order("start_time asc")
+      order("start_time asc")
   end
 
   def listing_date
     "#{venue} #{start_time.in_time_zone.strftime('%a, %b%e')}"
+  end
+
+  def date
+    start_time.in_time_zone('Eastern Time (US & Canada)').
+      strftime('%a, %b %e %Y')
   end
 end
