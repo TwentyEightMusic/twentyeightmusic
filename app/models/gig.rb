@@ -17,7 +17,7 @@ class Gig < ActiveRecord::Base
   end
 
   def listing_date
-    "#{venue} #{start_time.strftime('%a, %b%e')}"
+    "#{venue} #{start_time.strftime('%a, %b %e')}"
   end
 
   def date
