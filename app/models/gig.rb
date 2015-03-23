@@ -5,10 +5,15 @@ class Gig < ActiveRecord::Base
   validates :venue, presence: true
   validates :start_time, presence: true
 
-  def self.upcoming_gigs(num)
-    where("start_time >= ?", Time.now.midday).
-      order("start_time asc").
-      first(num)
+  def self.upcoming_gigs(num = nil)
+    if num
+      where("start_time >= ?", Time.now.midday).
+        order("start_time asc").
+        first(num)
+    else
+      where("start_time >= ?", Time.now.midday).
+        order("start_time asc")
+    end
   end
 
   def self.sorted_in_the_past
