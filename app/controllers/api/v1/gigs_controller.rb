@@ -1,3 +1,6 @@
+require "net/http"
+require "uri"
+
 class Api::V1::GigsController < ApplicationController
   before_action :validate_api_key
 
@@ -17,7 +20,12 @@ class Api::V1::GigsController < ApplicationController
       gigs_response = "#{gigs_response}#{gig.listing_date}\n"
     end
 
-    render json: { text: gigs_response }
+    uri = URI.parse("https://hooks.slack.com/services/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")
+    http = Net::HTTP.new(uri.host, uri.port)
+    request = Net::HTTP::Post.new(uri.request_uri)
+    request.set_form_data({"text" => gigs_response})
+    response = http.request(request)
+    render json: response
   end
 
   private
