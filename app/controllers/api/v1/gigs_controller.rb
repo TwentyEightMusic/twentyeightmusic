@@ -9,6 +9,11 @@ class Api::V1::GigsController < ApplicationController
     render json: message
   end
 
+  def index
+    gigs = Gig.upcoming_gigs
+    render json: gigs
+  end
+
   private
 
   def validate_api_key
