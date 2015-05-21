@@ -11,7 +11,13 @@ class Api::V1::GigsController < ApplicationController
 
   def index
     gigs = Gig.upcoming_gigs
-    render json: gigs
+    gigs_response = "Upcoming gigs:\n"
+
+    gigs.each do |gig|
+      gigs_response = "#{gigs_response}#{gig.listing_date}\n"
+    end
+
+    render json: { text: gigs_response }
   end
 
   private
