@@ -4,26 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Twenty Eight" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= filepicker_js_include_tag %>
-    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-    <script>
-      var _roost = _roost || [];
-      _roost.push(['appkey','1b4ab2107dd24f34a75eeb216a98acfa']);
-
-      !function(d,s,id){
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if(!d.getElementById(id)){
-          js=d.createElement(s); js.id=id;
-          js.src='//cdn.goroost.com/js/roost.js';
-          fjs.parentNode.insertBefore(js,fjs);
-        }
-      }(document, 'script', 'roost-js');
-    </script>
   </head>
 
   <body>
@@ -36,6 +23,7 @@
     </div>
 
     <%= yield %>
+
     <div id="sign-in">
       <% if signed_in? %>
         <%= link_to "sign out", session_path, method: :delete %>
