@@ -16,13 +16,13 @@ ActiveRecord::Schema.define(version: 20140630172410) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "api_keys", force: true do |t|
+  create_table "api_keys", force: :cascade do |t|
     t.string   "token",      null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "bootlegs", force: true do |t|
+  create_table "bootlegs", force: :cascade do |t|
     t.integer  "gig_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -30,14 +30,14 @@ ActiveRecord::Schema.define(version: 20140630172410) do
 
   add_index "bootlegs", ["gig_id"], name: "index_bootlegs_on_gig_id", using: :btree
 
-  create_table "gigs", force: true do |t|
+  create_table "gigs", force: :cascade do |t|
     t.string   "venue",      null: false
     t.datetime "start_time", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "tracks", force: true do |t|
+  create_table "tracks", force: :cascade do |t|
     t.integer  "bootleg_id"
     t.string   "name"
     t.string   "filepicker_url"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20140630172410) do
 
   add_index "tracks", ["bootleg_id"], name: "index_tracks_on_bootleg_id", using: :btree
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "password_digest"
     t.string   "name"

@@ -6,12 +6,10 @@ gem 'rails', '~> 4.2'
 gem 'pg'
 gem 'sass-rails'
 gem 'foundation-rails'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'uglifier'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'monban'
 gem 'monban-generators'
 gem 'filepicker-rails'
@@ -25,7 +23,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem "capybara"
   gem 'dotenv-rails'
-  gem 'rspec-rails', '~> 3.0.0'
+  gem 'rspec-rails', '~> 3.2'
   gem 'pry-rails'
 end
 
