@@ -1,9 +1,6 @@
 <tr>
   <td>
     <%= bootleg.gig.venue %>
-    <br>
-    <%= bootleg.gig.date %>
-
     <% if current_user.admin? %>
       <br>
       <%= link_to "add track", new_bootleg_track_path(bootleg), class: "button tiny" %>
