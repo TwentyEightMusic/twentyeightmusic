@@ -7,6 +7,7 @@ class BootlegsController < ApplicationController
     @bootleg = Bootleg.new
     @gigs = []
     gigs = Gig.sorted_in_the_past
+
     gigs.each do |gig|
       if gig.bootleg.nil?
         @gigs << gig
@@ -17,6 +18,7 @@ class BootlegsController < ApplicationController
   def create
     gig = Gig.find(params[:bootleg][:gig])
     @bootleg = gig.create_bootleg
+
     if @bootleg.valid?
       redirect_to new_bootleg_track_path(@bootleg)
     else
@@ -27,6 +29,7 @@ class BootlegsController < ApplicationController
   def destroy
     bootleg = Bootleg.find(params[:id])
     bootleg.destroy
+
     redirect_to bootlegs_path
   end
 end

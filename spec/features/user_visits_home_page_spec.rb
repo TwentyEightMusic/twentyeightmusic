@@ -14,12 +14,12 @@ feature "User visits home page" do
 
     visit root_path
 
-    expect(page).to have_content(email_address)
+    expect(page).to have_link("email", href: "mailto:#{email_address}")
   end
 
   scenario "and sees a link to the bandcamp page" do
     bandcamp_url = "http://music.twentyeightmusic.com"
-    link_title = "music.twentyeightmusic.com"
+    link_title = "studio tracks"
 
     visit root_path
 

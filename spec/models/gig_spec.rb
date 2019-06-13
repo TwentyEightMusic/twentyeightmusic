@@ -1,6 +1,16 @@
 require "rails_helper"
 
 describe Gig do
+  context ".sorted_in_the_past" do
+    it "returns a list of gigs from past to present" do
+      yesterdays_gig = create(:gig, start_time: 1.day.ago)
+      recent_gig = create(:gig, start_time: 5.days.ago)
+      old_gig = create(:gig, start_time: 100.days.ago)
+
+      expect(Gig.sorted_in_the_past).to eq([old_gig, recent_gig, yesterdays_gig])
+    end
+  end
+
   context ".upcoming_gigs" do
     context "when a number of gigs is given" do
       it "returns the given number of gigs" do

@@ -17,7 +17,7 @@ class Gig < ActiveRecord::Base
   end
 
   def self.sorted_in_the_past
-    where("start_time <= ?", Time.now.midday).
+    where(start_time: 100.years.ago..DateTime.current).
       order("start_time asc")
   end
 

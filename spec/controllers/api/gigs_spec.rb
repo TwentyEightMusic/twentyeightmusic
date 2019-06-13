@@ -7,7 +7,7 @@ describe Api::V1::GigsController do
       gig_info = { venue: "The WoodShed", start_time: Time.now }
 
       expect(ApiKey).to receive(:find_by).and_return(api_key)
-      post :create, api_key: api_key, gig_info: gig_info
+      post :create, params: { api_key: api_key, gig_info: gig_info }
 
       expect(Gig.all.count).to eq 1
     end
