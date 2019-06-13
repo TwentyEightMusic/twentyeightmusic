@@ -1,4 +1,4 @@
-class CreateBootlegs < ActiveRecord::Migration
+class CreateBootlegs < ActiveRecord::Migration[4.2]
   def change
     create_table :bootlegs do |t|
       t.belongs_to :gig, index: true
