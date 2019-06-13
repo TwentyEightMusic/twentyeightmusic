@@ -242,7 +242,6 @@ DEPENDENCIES
   rspec-rails
   sass-rails
   spring
-  turbolinks
   uglifier
 
 RUBY VERSION
