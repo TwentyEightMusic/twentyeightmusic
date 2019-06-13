@@ -14,10 +14,7 @@ gem 'oath'
 gem 'oath-generators'
 gem 'filepicker-rails'
 gem 'jquery-turbolinks'
-
-group :development do
-  gem 'spring'
-end
+gem 'coffee-rails'
 
 group :development, :test do
   gem 'factory_bot_rails'
