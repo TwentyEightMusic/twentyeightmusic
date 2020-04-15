@@ -1,9 +1,0 @@
-<div class="gigs panel callout radius">
-  <%= render "error_messages", target: @bootleg %>
-  <h2>Please choose a gig:</h2>
-
-  <%= form_for @bootleg do |form| %>
-    <%= form.collection_select :gig, @gigs, :id, :listing_date %>
-    <%= form.submit "Next...", class: "button" %>
-  <% end %>
-</div>
