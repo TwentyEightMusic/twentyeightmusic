@@ -1,0 +1,24 @@
+- title: Just A Number
+  date: 2010-09-28
+  release_type: Album
+  image: "./images/just-a-number-cover.jpg"
+  links:
+    - name: Bandcamp
+      url: https://twentyeight.bandcamp.com/album/road-to-october
+    - name: Spotify
+      url: https://open.spotify.com/album/4iVVsYWlfn8vl40NqflycR
+
+- title: Road To October
+  date: 2008-03-10
+  release_type: Album
+  image: "./images/road-to-october-cover.jpg"
+  links:
+    - name: Bandcamp
+      url: https://twentyeight.bandcamp.com/album/road-to-october
+    - name: Spotify
+      url: https://open.spotify.com/album/2DnZuY1O9eV90E7hQNLcH9
+
+- title: Demo
+  date: 2006-01-01
+  release_type: Album
+  image: "./images/demo-cover.jpg"
