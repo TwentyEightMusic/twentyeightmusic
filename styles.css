@@ -1,0 +1,67 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header styling */
+header {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    margin-bottom: 1rem;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 1rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Main content sections */
+section {
+    margin-bottom: 2rem;
+}
+
+section h2 {
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1rem;
+    border-top: 1px solid #ddd;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+}
