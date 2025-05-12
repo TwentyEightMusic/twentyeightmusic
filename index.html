@@ -1,48 +1,110 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TwentyEight Music</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="js/modal.js"></script>
+    <script src="js/gigs.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        secondary: '#1e40af',
+                        accent: '#3b82f6',
+                        hover: '#3B695B',
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-    <header>
-        <h1>TwentyEight Music</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#music">Music</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
+<body class="bg-image-color">
     <main>
-        <section id="home">
-            <h2>Welcome to TwentyEight Music</h2>
-            <p>Your content here</p>
-        </section>
-
-        <section id="about">
-            <h2>About Us</h2>
-            <p>Your content here</p>
-        </section>
-
-        <section id="music">
-            <h2>Our Music</h2>
-            <p>Your content here</p>
-        </section>
-
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <p>Your content here</p>
+        <section id="home" class="min-h-screen flex items-center justify-center relative">
+            <div class="absolute inset-0">
+                <nav class="flex justify-center space-x-8 bg-black bg-opacity-10 px-4 py-3 rounded-lg">
+                    <button data-modal-target="#gigs-modal" class="text-hover hover:text-white px-6 py-4 rounded-md text-2xl font-serif tracking-wide hover:bg-white hover:bg-opacity-10 transition-all duration-300 transform hover:scale-110">Gigs</button>
+                    <button data-modal-target="#listen-modal" class="text-hover hover:text-white px-6 py-4 rounded-md text-2xl font-serif tracking-wide hover:bg-white hover:bg-opacity-10 transition-all duration-300 transform hover:scale-110">Listen</button>
+                    <button data-modal-target="#contact-modal" class="text-hover hover:text-white px-6 py-4 rounded-md text-2xl font-serif tracking-wide hover:bg-white hover:bg-opacity-10 transition-all duration-300 transform hover:scale-110">Contact</button>
+                </nav>
+                <img src="assets/images/logo-large.png" alt="twenty eight music" class="w-full h-full object-contain">
+            </div>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2025 TwentyEight Music. All rights reserved.</p>
-    </footer>
+    <!-- Overlay -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden"></div>
+
+    <!-- Modals -->
+    <div class="modal hidden" id="gigs-modal">
+        <div class="modal-content bg-white rounded-lg shadow-xl">
+            <div class="relative p-8">
+                <button data-close-button class="modal-close">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.3 5.709c-.39-.39-1.024-.39-1.414 0L12 10.586 7.114 5.709c-.39-.39-1.024-.39-1.414 0-.39.39-.39 1.023 0 1.414L10.586 12 6.709 16.89c-.39.39-.39 1.024 0 1.414.39.39 1.023.39 1.414 0L12 13.414l4.89 4.89c.39.39 1.023.39 1.414 0 .39-.39.39-1.023 0-1.414L13.414 12l4.89-4.89c.39-.39.39-1.023 0-1.414z"/>
+                    </svg>
+                </button>
+                <h2 class="text-3xl font-semibold mb-6">Gigs</h2>
+                <p class="text-gray-600 mb-6">See when and where we are playing next:</p>
+                <div class="gigs-list space-y-4"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal hidden" id="listen-modal">
+        <div class="modal-content bg-white rounded-lg shadow-xl">
+            <div class="relative p-8">
+                <button data-close-button class="modal-close">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.3 5.709c-.39-.39-1.024-.39-1.414 0L12 10.586 7.114 5.709c-.39-.39-1.024-.39-1.414 0-.39.39-.39 1.023 0 1.414L10.586 12 6.709 16.89c-.39.39-.39 1.024 0 1.414.39.39 1.023.39 1.414 0L12 13.414l4.89 4.89c.39.39 1.023.39 1.414 0 .39-.39.39-1.023 0-1.414L13.414 12l4.89-4.89c.39-.39.39-1.023 0-1.414z"/>
+                    </svg>
+                </button>
+                <h2 class="text-3xl font-semibold mb-6">Listen</h2>
+                <p class="text-gray-600 mb-6">Explore our music catalog and latest releases on your favorite platforms:</p>
+                <div class="music-platforms">
+                    <a href="https://music.youtube.com/channel/UCcy9oL5fW2iD_aGt9z3_cZg" target="_blank" class="platform-btn">
+                        <img src="assets/images/youtube.svg" alt="YouTube Music" class="w-8 h-8">
+                        <span>YouTube Music</span>
+                    </a>
+                    <a href="https://open.spotify.com/artist/4UonzRCI0OOZmgnmE4B8FD" target="_blank" class="platform-btn">
+                        <img src="assets/images/spotify.svg" alt="Spotify" class="w-8 h-8">
+                        <span>Spotify</span>
+                    </a>
+                    <a href="https://music.twentyeightmusic.com/" target="_blank" class="platform-btn">
+                        <img src="assets/images/bandcamp-button-bc-circle-grey-128.png" alt="Bandcamp" class="w-8 h-8">
+                        <span>Bandcamp</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal hidden" id="contact-modal">
+        <div class="modal-content bg-white rounded-lg shadow-xl">
+            <div class="relative p-8">
+                <button data-close-button class="modal-close">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.3 5.709c-.39-.39-1.024-.39-1.414 0L12 10.586 7.114 5.709c-.39-.39-1.024-.39-1.414 0-.39.39-.39 1.023 0 1.414L10.586 12 6.709 16.89c-.39.39-.39 1.024 0 1.414.39.39 1.023.39 1.414 0L12 13.414l4.89 4.89c.39.39 1.023.39 1.414 0 .39-.39.39-1.023 0-1.414L13.414 12l4.89-4.89c.39-.39.39-1.023 0-1.414z"/>
+                    </svg>
+                </button>
+                <h2 class="text-3xl font-semibold mb-6">Contact</h2>
+                <p class="text-gray-600 mb-6">Get in touch with us for inquiries and collaborations.</p>
+                <div class="space-y-4">
+                    <p class="text-gray-600">
+                        <a href="mailto:info@twentyeightmusic.com" class="text-blue-600 hover:text-blue-800">info@twentyeightmusic.com</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
