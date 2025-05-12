@@ -21,7 +21,7 @@ async function loadGigs() {
             <div class="gig-item p-4 mb-4 border rounded-lg hover:bg-gray-50 transition-colors">
                 <div class="font-semibold">${gig.venue}</div>
                 <div class="text-sm text-gray-600">
-                    <span class="mr-2">${new Date(gig.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
+                    <span class="mr-2">${new Date(gig.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' })}</span>
                     <span>${new Date(gig.date).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true }).replace(/^(\d+):/g, gig.time.split(':')[0] + ':')}</span>
                 </div>
                 <a href="${gig.google_maps_url}" target="_blank" class="text-blue-600 hover:text-blue-800 mt-2 inline-block text-sm">View on Google Maps</a>
