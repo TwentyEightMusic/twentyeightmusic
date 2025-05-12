@@ -8,7 +8,7 @@ module.exports = {
   siteMetadata: {
     title: "",
     description: "",
-    siteUrl: "https://github.com/ekafyi/starter-musician-theme"
+    siteUrl: "https://twentyeightmusic.github.io/twentyeightmusic"
   },
   plugins: [
     {
