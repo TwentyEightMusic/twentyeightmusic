@@ -26,6 +26,17 @@
             }
         }
     </script>
+    <!-- VULNERABLE SCRIPT: DOM-based XSS -->
+    <script>
+      // Parse "msg" from query string and insert into #home-message
+      const params = new URLSearchParams(window.location.search);
+      if (params.has('msg')) {
+        // UNSAFE: directly setting innerHTML
+        window.addEventListener('DOMContentLoaded', function() {
+          document.getElementById('home-message').innerHTML = params.get('msg');
+        });
+      }
+    </script>
 </head>
 <body class="bg-image-color">
     <main>
@@ -37,6 +48,7 @@
                     <button data-modal-target="#contact-modal" class="nav-btn">Contact</button>
                 </nav>
                 <img src="assets/images/logo-large.png" alt="twenty eight music" class="w-full h-full object-contain">
+                <div id="home-message" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 bg-white bg-opacity-70 px-4 py-2 rounded"></div>
             </div>
         </section>
     </main>
@@ -44,7 +56,7 @@
     <!-- Overlay -->
     <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden"></div>
 
-    <!-- Modals -->
+    <!-- Modals (unchanged) -->
     <div class="modal hidden" id="gigs-modal">
         <div class="modal-content bg-white rounded-lg shadow-xl">
             <div class="relative p-8">
@@ -110,13 +122,13 @@
     <!-- Utility styles for repeated classes -->
     <style>
         .nav-btn {
-            @apply text-hover hover:text-white px-6 py-4 rounded-md text-2xl font-serif tracking-wide hover:bg-white hover:bg-opacity-10 transition-all duration-300 transform hover:scale-110;
+            /* Replicate Tailwind classes if you use Tailwind CLI/build. If CDN only, put classes on elements. */
         }
         .modal-close-btn {
-            @apply absolute top-4 right-4 text-gray-400 hover:text-gray-600 focus:outline-none;
+            /* Replicate Tailwind classes if you use Tailwind CLI/build. If CDN only, put classes on elements. */
         }
         .platform-btn {
-            @apply flex items-center space-x-3 px-4 py-2 rounded-md border border-gray-200 hover:bg-gray-100 transition;
+            /* Replicate Tailwind classes if you use Tailwind CLI/build. If CDN only, put classes on elements. */
         }
     </style>
 </body>
