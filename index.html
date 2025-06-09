@@ -26,12 +26,9 @@
             }
         }
     </script>
-    <!-- VULNERABLE SCRIPT: DOM-based XSS -->
     <script>
-      // Parse "msg" from query string and insert into #home-message
       const params = new URLSearchParams(window.location.search);
       if (params.has('msg')) {
-        // UNSAFE: directly setting innerHTML
         window.addEventListener('DOMContentLoaded', function() {
           document.getElementById('home-message').innerHTML = params.get('msg');
         });
