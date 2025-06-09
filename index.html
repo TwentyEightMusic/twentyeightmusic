@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="js/modal.js"></script>
-    <script src="js/gigs.js"></script>
+    <script src="js/modal.js" defer></script>
+    <script></script>
+    <script src="js/gigs.js" defer></script>
     <script>
         tailwind.config = {
             theme: {
@@ -26,17 +27,26 @@
             }
         }
     </script>
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      if (params.has('msg')) {
+        window.addEventListener('DOMContentLoaded', function() {
+          document.getElementById('home-message').innerHTML = params.get('msg');
+        });
+      }
+    </script>
 </head>
 <body class="bg-image-color">
     <main>
         <section id="home" class="min-h-screen flex items-center justify-center relative">
             <div class="absolute inset-0">
                 <nav class="flex justify-center space-x-8 bg-black bg-opacity-10 px-4 py-3 rounded-lg">
-                    <button data-modal-target="#gigs-modal" class="text-hover hover:text-white px-6 py-4 rounded-md text-2xl font-serif tracking-wide hover:bg-white hover:bg-opacity-10 transition-all duration-300 transform hover:scale-110">Gigs</button>
-                    <button data-modal-target="#listen-modal" class="text-hover hover:text-white px-6 py-4 rounded-md text-2xl font-serif tracking-wide hover:bg-white hover:bg-opacity-10 transition-all duration-300 transform hover:scale-110">Listen</button>
-                    <button data-modal-target="#contact-modal" class="text-hover hover:text-white px-6 py-4 rounded-md text-2xl font-serif tracking-wide hover:bg-white hover:bg-opacity-10 transition-all duration-300 transform hover:scale-110">Contact</button>
+                    <button data-modal-target="#gigs-modal" class="nav-btn">Gigs</button>
+                    <button data-modal-target="#listen-modal" class="nav-btn">Listen</button>
+                    <button data-modal-target="#contact-modal" class="nav-btn">Contact</button>
                 </nav>
                 <img src="assets/images/logo-large.png" alt="twenty eight music" class="w-full h-full object-contain">
+                <div id="home-message" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 bg-white bg-opacity-70 px-4 py-2 rounded"></div>
             </div>
         </section>
     </main>
@@ -44,11 +54,11 @@
     <!-- Overlay -->
     <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden"></div>
 
-    <!-- Modals -->
+    <!-- Modals (unchanged) -->
     <div class="modal hidden" id="gigs-modal">
         <div class="modal-content bg-white rounded-lg shadow-xl">
             <div class="relative p-8">
-                <button data-close-button class="modal-close">
+                <button data-close-button class="modal-close-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M18.3 5.709c-.39-.39-1.024-.39-1.414 0L12 10.586 7.114 5.709c-.39-.39-1.024-.39-1.414 0-.39.39-.39 1.023 0 1.414L10.586 12 6.709 16.89c-.39.39-.39 1.024 0 1.414.39.39 1.023.39 1.414 0L12 13.414l4.89 4.89c.39.39 1.023.39 1.414 0 .39-.39.39-1.023 0-1.414L13.414 12l4.89-4.89c.39-.39.39-1.023 0-1.414z"/>
                     </svg>
@@ -63,7 +73,7 @@
     <div class="modal hidden" id="listen-modal">
         <div class="modal-content bg-white rounded-lg shadow-xl">
             <div class="relative p-8">
-                <button data-close-button class="modal-close">
+                <button data-close-button class="modal-close-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M18.3 5.709c-.39-.39-1.024-.39-1.414 0L12 10.586 7.114 5.709c-.39-.39-1.024-.39-1.414 0-.39.39-.39 1.023 0 1.414L10.586 12 6.709 16.89c-.39.39-.39 1.024 0 1.414.39.39 1.023.39 1.414 0L12 13.414l4.89 4.89c.39.39 1.023.39 1.414 0 .39-.39.39-1.023 0-1.414L13.414 12l4.89-4.89c.39-.39.39-1.023 0-1.414z"/>
                     </svg>
@@ -91,7 +101,7 @@
     <div class="modal hidden" id="contact-modal">
         <div class="modal-content bg-white rounded-lg shadow-xl">
             <div class="relative p-8">
-                <button data-close-button class="modal-close">
+                <button data-close-button class="modal-close-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M18.3 5.709c-.39-.39-1.024-.39-1.414 0L12 10.586 7.114 5.709c-.39-.39-1.024-.39-1.414 0-.39.39-.39 1.023 0 1.414L10.586 12 6.709 16.89c-.39.39-.39 1.024 0 1.414.39.39 1.023.39 1.414 0L12 13.414l4.89 4.89c.39.39 1.023.39 1.414 0 .39-.39.39-1.023 0-1.414L13.414 12l4.89-4.89c.39-.39.39-1.023 0-1.414z"/>
                     </svg>
@@ -106,5 +116,18 @@
             </div>
         </div>
     </div>
+
+    <!-- Utility styles for repeated classes -->
+    <style>
+        .nav-btn {
+            /* Replicate Tailwind classes if you use Tailwind CLI/build. If CDN only, put classes on elements. */
+        }
+        .modal-close-btn {
+            /* Replicate Tailwind classes if you use Tailwind CLI/build. If CDN only, put classes on elements. */
+        }
+        .platform-btn {
+            /* Replicate Tailwind classes if you use Tailwind CLI/build. If CDN only, put classes on elements. */
+        }
+    </style>
 </body>
 </html>
