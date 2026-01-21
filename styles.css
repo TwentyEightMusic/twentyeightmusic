@@ -1,5 +1,71 @@
-.bg-image-color {
-    background-color: #F9E9C4;
+:root {
+    --cream: #F9E9C4;
+    --gold: #B8860B;
+    --gold-light: #D4A84B;
+    --gold-dark: #8B6914;
+    --warm: #5C4033;
+    --warm-light: #8B7355;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--cream);
+    font-family: 'Playfair Display', Georgia, serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation */
+.nav-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    position: relative;
+}
+
+.nav-text {
+    color: var(--cream);
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover .nav-text {
+    color: var(--gold-light);
+}
+
+.nav-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 80%;
+    height: 1px;
+    background: var(--gold-light);
+    transition: transform 0.3s ease;
+}
+
+.nav-btn:hover::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+@media (max-width: 640px) {
+    .nav-text {
+        font-size: 0.85rem;
+        letter-spacing: 0.05em;
+    }
+    
+    .nav-btn {
+        padding: 0.5rem 0.75rem;
+    }
 }
 
 /* Modal Styles */
@@ -12,145 +78,233 @@
     display: none;
     z-index: 1000;
     padding: 1rem;
-}
-
-.modal .modal-content {
-    position: relative;
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    height: 90vh;
-    max-height: 90vh;
-    overflow-y: auto;
-    background-color: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(15px);
-    border-radius: 1rem;
-    font-family: 'Playfair Display', Georgia, serif;
-}
-
-/* Mobile-specific modal adjustments */
-@media (max-width: 768px) {
-    .modal .modal-content {
-        height: 100%;
-        max-height: 100%;
-        border-radius: 0;
-        padding: 1rem;
-    }
-    
-    .modal-close {
-        top: 0.5rem;
-        right: 0.5rem;
-        width: 24px;
-        height: 24px;
-    }
-    
-    .modal-close svg {
-        width: 12px;
-        height: 12px;
-    }
-}
-
-/* X button styles */
-.modal-close {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    width: 32px;
-    height: 32px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #666;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal.block {
+    display: flex;
+}
+
+.modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    background: linear-gradient(135deg, rgba(249, 233, 196, 0.95) 0%, rgba(255, 255, 255, 0.95) 100%);
+    backdrop-filter: blur(20px);
+    border-radius: 1.5rem;
+    border: 1px solid var(--gold);
+    box-shadow: 
+        0 25px 50px -12px rgba(92, 64, 51, 0.25),
+        0 0 0 1px rgba(184, 134, 11, 0.1);
+    overflow: hidden;
+}
+
+.modal-inner {
+    padding: 2.5rem;
+}
+
+.modal-close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    width: 36px;
+    height: 36px;
+    background: transparent;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--warm);
     transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .modal-close:hover {
-    color: #333;
+    background: var(--gold);
+    color: white;
     transform: rotate(90deg);
 }
 
-.modal-close svg {
-    width: 16px;
-    height: 16px;
-    fill: currentColor;
+.modal-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--warm);
+    margin: 0 0 0.5rem 0;
+    letter-spacing: 0.02em;
 }
 
-/* Music platform buttons */
+.modal-subtitle {
+    font-size: 1rem;
+    color: var(--warm-light);
+    margin: 0 0 2rem 0;
+    font-style: italic;
+}
+
+/* Gigs List */
+.gigs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.gig-item {
+    padding: 1.25rem;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 1rem;
+    border: 1px solid rgba(184, 134, 11, 0.2);
+    transition: all 0.3s ease;
+}
+
+.gig-item:hover {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: var(--gold);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px -5px rgba(92, 64, 51, 0.15);
+}
+
+.gig-venue {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--warm);
+    margin-bottom: 0.5rem;
+}
+
+.gig-details {
+    font-size: 0.9rem;
+    color: var(--warm-light);
+    margin-bottom: 0.75rem;
+}
+
+.gig-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--gold-dark);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.gig-link:hover {
+    color: var(--gold);
+}
+
+/* Music Platforms */
 .music-platforms {
     display: flex;
-    gap: 2rem;
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .platform-btn {
-    flex: 1;
-    padding: 1rem;
-    border-radius: 8px;
-    text-align: center;
-    transition: all 0.3s ease;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 1rem;
+    border: 1px solid rgba(184, 134, 11, 0.2);
+    text-decoration: none;
+    transition: all 0.3s ease;
 }
 
 .platform-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.9);
+    border-color: var(--gold);
+    transform: translateX(4px);
+    box-shadow: 0 8px 25px -5px rgba(92, 64, 51, 0.15);
 }
 
-.platform-btn svg {
-    width: 32px;
-    height: 32px;
-    fill: currentColor;
+.platform-btn img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
 }
 
 .platform-btn span {
-    font-size: 0.9rem;
-    color: #333;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--warm);
 }
 
-/* Mobile-specific platform button adjustments */
-@media (max-width: 768px) {
-    .music-platforms {
-        flex-direction: column;
-        gap: 1rem;
-        margin-top: 1rem;
-        padding-top: 1rem;
-    }
-    
-    .platform-btn {
-        width: 100%;
-        padding: 1rem;
-    }
-    
-    .platform-btn svg {
-        width: 24px;
-        height: 24px;
-    }
-    
-    .platform-btn span {
-        font-size: 0.8rem;
-    }
+/* Contact */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 1rem;
+    border: 1px solid rgba(184, 134, 11, 0.2);
+    text-decoration: none;
+    color: var(--warm);
+    transition: all 0.3s ease;
+}
+
+.contact-link:hover {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: var(--gold);
+    transform: translateX(4px);
+    box-shadow: 0 8px 25px -5px rgba(92, 64, 51, 0.15);
+}
+
+.contact-link svg {
+    color: var(--gold);
+    flex-shrink: 0;
+}
+
+.contact-link span {
+    font-size: 1rem;
+}
+
+/* Overlay */
 #overlay {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
     display: none;
     z-index: 999;
 }
 
-#overlay.active {
+#overlay.block {
     display: block;
+}
+
+/* Mobile adjustments */
+@media (max-width: 640px) {
+    .modal {
+        padding: 0;
+    }
+    
+    .modal-content {
+        max-width: 100%;
+        height: 100%;
+        border-radius: 0;
+        border: none;
+    }
+    
+    .modal-inner {
+        padding: 2rem 1.5rem;
+    }
+    
+    .modal-title {
+        font-size: 1.75rem;
+    }
 }
