@@ -1,8 +1,32 @@
 [
   {
     "venue": "The Sandbar, West Dennis",
-    "date": "2025-05-23T00:00:00.000Z",
-    "time": "9:30 PM",
+    "date": "2026-05-22T00:00:00.000Z",
+    "time": "9:00 PM",
     "google_maps_url": "https://maps.app.goo.gl/uyduXTqGBuGa8mhK6"
+  },
+  {
+    "venue": "The Woodshed, Brewster",
+    "date": "2026-07-18T00:00:00.000Z",
+    "time": "9:00 PM",
+    "google_maps_url": "https://maps.app.goo.gl/N7tpTngPFx2XshN69"
+  },
+  {
+    "venue": "The Woodshed, Brewster",
+    "date": "2026-08-15T00:00:00.000Z",
+    "time": "9:00 PM",
+    "google_maps_url": "https://maps.app.goo.gl/N7tpTngPFx2XshN69"
+  },
+  {
+    "venue": "Cape Playhouse, Dennis",
+    "date": "2026-10-03T00:00:00.000Z",
+    "time": "6:30 PM",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Cape+Playhouse+820+Main+St+Dennis+MA+02638"
+  },
+  {
+    "venue": "The Woodshed, Brewster",
+    "date": "2026-10-10T00:00:00.000Z",
+    "time": "9:00 PM",
+    "google_maps_url": "https://maps.app.goo.gl/N7tpTngPFx2XshN69"
   }
 ]
